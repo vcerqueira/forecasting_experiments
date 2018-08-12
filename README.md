@@ -27,12 +27,30 @@ Scripts used for analysing the experiments
 
 1. Running data/data.r transforms a set of time series into a tabular format 
 
-2. Experi
+2. experiments/1-main-analysis.r is the main script for running the experiments. It takes a while to compute all the analysis. To speed up computations you can comment some of the pipelines, reduce training/test data, no. of monte carlo simulations, or use a lighter ensemble. The following experiments are run:
 
-    a. sads
+    a. State of the art forecast combination methods in 62 time series;
     
-    b. asda
+    b. Scalability analysis (in runtime) of several methods, including the arbitrage of forecasting experts;
     
-    c.da
+    c. Study on the value of adding new experts to the ensemble;
+    
+    d. Comparison of the sequential reweighting procedure versus removing correlation in feature space;
+    
+    e. Study on the impact of the sequential reweighting process on state of the art  methods for forecast combination.
+    
+    
+3. experiments/2.1-sensitivity-analysis.r
+
+    a. Study on the sensitivity analysis of the arbitrage of forecasting experts to the lambda and omega parameters
+    
+4. experiments/2.2-retrain-analysis.r 
+
+    a. Study on different deployment solution of the arbitrage of forecasting experts approach.
+    
+    
+## Contact
+
+If you have any doubt, please contact me at vitor.cerqueira@fe.up.pt
 
 
