@@ -1,6 +1,17 @@
-#devtools::install_github("vcerqueira/tsensembler")
-library(tsensembler)
-library(forecast)
+#devtools::install_github("vcerqueira/tsensembler") # please install dev version
+library(tsensembler)#ADE
+library(forecast)#forecast
+library(softImpute)#NAs
+library(tseriesChaos)#embedding dimension
+library(ranger)#random forests
+library(reshape2)#munging data
+library(ggplot2)#plots
+library(opera)#forecast combinations
+library(caret)#pca
+library(moments)#statistics
+library(DMwR)#statistics
+library(nonlinearTseries)#statistics
+library(Rwave)#statistics
 
 source("sources/utils.R")
 source("sources/src-summarystats.R")
