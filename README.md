@@ -1,13 +1,13 @@
 ## Arbitrage of Forecasting Experts
 
 This is a repo containing a set of experiments for forecast combination. 
-Below is a brief summary on how to run the scripts and what they contain.
+Below is a brief summary on how to run the scripts.
 
-### Folders
+### Content
 
 #### data
 
-Contains the time series datasets and a script to transform these to a tabular format
+Contains the time series datasets and a script to transform these into a tabular format using time delay embedding.
 
 #### sources
 
@@ -22,35 +22,34 @@ Scripts used for running the experiments
 
 Scripts used for analysing the experiments
 
-
 ### How to run the experiments
 
-1. Running data/data.r transforms a set of time series into a tabular format 
+1. Running data/data.r transforms a set of time series into a tabular format using time delay embedding 
 
-2. experiments/1-main-analysis.r is the main script for running the experiments. It takes a while to compute all the analysis. To speed up computations you can comment some of the pipelines, reduce training/test data, no. of monte carlo simulations, or use a lighter ensemble. The following experiments are run:
+2. experiments/main-analysis.r is the main script for running the experiments.
 
     a. State of the art forecast combination methods in 62 time series;
     
-    b. Scalability analysis (in runtime) of several methods, including the arbitrage of forecasting experts;
+    b. Scalability analysis (in runtime);
     
-    c. Study on the value of adding new experts to the ensemble;
+    c. A study on the value of adding new experts to the ensemble;
     
-    d. Comparison of the sequential reweighting procedure versus removing correlation in feature space;
+    d. A comparison of the sequential reweighting procedure versus removing correlation in feature space;
     
-    e. Study on the impact of the sequential reweighting process on state of the art  methods for forecast combination.
+    e. A study on the impact of the sequential reweighting process on state of the art  methods for forecast combination.
     
     
-3. experiments/2.1-sensitivity-analysis.r
+3. experiments/sensitivity-analysis.r
 
-    a. Study on the sensitivity analysis of the arbitrage of forecasting experts to the lambda and omega parameters
+    a. A study on the sensitivity analysis of the arbitrage of forecasting experts to the lambda and omega parameters
     
-4. experiments/2.2-retrain-analysis.r 
+4. experiments/retrain-analysis.r 
 
-    a. Study on different deployment solution of the arbitrage of forecasting experts approach.
+    a. A study on different deployment solution of the arbitrage of forecasting experts approach.
     
     
 ## Contact
 
-If you have any doubt, please contact me at vitor.cerqueira@fe.up.pt
+Feel free to contact me at vitor.cerqueira@fe.up.pt
 
 
