@@ -16,7 +16,7 @@ ids <- 50
 
 nreps <- 1
 tr_size <- .25
-ts_size <- .0125
+ts_size <- .1
 
 specs <- MODELSPECS
 
