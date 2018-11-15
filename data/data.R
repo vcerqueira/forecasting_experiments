@@ -59,22 +59,26 @@ for (i in seq_along(ts_list)) {
 
   embedded_time_series[[i]] <- ds
 }
-
-
 names(embedded_time_series) <- names(ts_list)
+
+
+for (i in seq_along(embedded_time_series)) {
+  index_i <- rownames(as.data.frame(ts_list[[i]]))
+  duplicates <- which(duplicated(index_i))
+
+  if (length(duplicates) > 0) {
+    embedded_time_series[[i]] <- embedded_time_series[[i]][-duplicates,]
+
+    rownames(embedded_time_series[[i]]) <-
+      head(index_i[-duplicates], nrow(embedded_time_series[[i]]))
+  } else {
+    rownames(embedded_time_series[[i]]) <-
+      head(index_i, nrow(embedded_time_series[[i]]))
+  }
+}
+
 ord <- order(sapply(embedded_time_series,nrow))
 embedded_time_series <- embedded_time_series[ord]
-           
-embedded_time_series <-
-  lapply(embedded_time_series,
-         function(x) {
-           rownames(x) <-
-             seq.Date(from = Sys.Date(),
-                      length.out = nrow(x),
-                      by = 1)
-
-           x
-         })
 
 save(embedded_time_series, file = "./data/embedded_data.rdata")
 #
