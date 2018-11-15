@@ -64,6 +64,17 @@ for (i in seq_along(ts_list)) {
 names(embedded_time_series) <- names(ts_list)
 ord <- order(sapply(embedded_time_series,nrow))
 embedded_time_series <- embedded_time_series[ord]
+           
+embedded_time_series <-
+  lapply(embedded_time_series,
+         function(x) {
+           rownames(x) <-
+             seq.Date(from = Sys.Date(),
+                      length.out = nrow(x),
+                      by = 1)
+
+           x
+         })
 
 save(embedded_time_series, file = "./data/embedded_data.rdata")
 #
