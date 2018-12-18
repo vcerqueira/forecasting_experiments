@@ -29,23 +29,23 @@ MAIN_PIPELINE <-
         sequential_reweight = TRUE
       )
 
-    cat("Fit ADE vanilla\n")
-    set.seed(1234)
-    ade_van <-
-      ADE(
-        form = form,
-        data = train,
-        specs = specs,
-        lambda = 50,
-        omega = .5,
-        select_best = FALSE,
-        all_models = FALSE,
-        aggregation = "linear",
-        sequential_reweight = TRUE,
-        meta_loss_fun = err
-      )
+    #cat("Fit ADE vanilla\n")
+    #set.seed(1234)
+    #ade_van <-
+    #  ADE(
+    #    form = form,
+    #    data = train,
+    #    specs = specs,
+    #    lambda = 50,
+    #    omega = .5,
+    #    select_best = FALSE,
+    #    all_models = FALSE,
+    #    aggregation = "linear",
+    #    sequential_reweight = TRUE,
+    #    meta_loss_fun = err
+    #  )
 
-    preds_ADE_van <- predict_vanilla(ade_van, test)
+    #preds_ADE_van <- predict_vanilla(ade_van, test)
 
     # Base predictors
     M <- ade@base_ensemble
@@ -177,7 +177,7 @@ MAIN_PIPELINE <-
     ############################################################
     cat("RMSE loss\n")
     rmse_ADE         <- rmse(Y, preds_ADE)
-    rmse_ADE_van     <- rmse(Y, preds_ADE_van)
+    #rmse_ADE_van     <- rmse(Y, preds_ADE_van)
     rmse_stacking    <- rmse(Y, preds_stacking)
     rmse_AEC         <- rmse(Y, preds_AEC)
     #rmse_ADE_runtime <- rmse(Y, preds_ADE_runtime)
@@ -205,7 +205,7 @@ MAIN_PIPELINE <-
     results <-
       list(
         rmse_ADE = rmse_ADE,
-        rmse_ADE_van = rmse_ADE_van,
+        #rmse_ADE_van = rmse_ADE_van,
         rmse_stacking = rmse_stacking,
         rmse_AEC = rmse_AEC,
         #rmse_ADE_runtime = rmse_ADE_runtime,
